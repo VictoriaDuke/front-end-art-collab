@@ -53,7 +53,7 @@ const ProjectForm = (props) => {
           />
         </div>
         <div className="new-project__control">
-          <label>Amount</label>
+          <label>Expected Member Contribution Amount (USD)</label>
           <input
             type="number"
             min="0.01"
