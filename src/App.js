@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 import NewProject from "./components/NewProject/NewProject";
 import Projects from "./components/Projects/Projects";
 // import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+
+const URL = "http://127.0.0.1:5000";
 
 // remove INITIAL_PROJECTS once connected to backend
 const INITIAL_PROJECTS = [
@@ -51,6 +54,13 @@ const App = () => {
       return [project, ...prevProjects];
     });
   };
+
+  // GET all projects
+  useEffect(() => {
+    axios.get(`${URL}/projects`).then((res) => {
+      console.log(res.data);
+    });
+  });
 
   return (
     <div>
